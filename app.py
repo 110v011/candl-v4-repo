@@ -69,13 +69,17 @@ if st.button("ダウンロード準備"):
                     except: pass
 
                 # 共通オプション設定
+                # 共通オプション設定
                 common_opts = {
                     'extractor_args': {'youtube': {'client': ['ios', 'android']}},
                     'sleep_requests': 2,
                     'source_address': '0.0.0.0',
-                    'ignoreerrors': False, # エラーを無視せず、例外を適切に発生させる
-                    'quiet': False,        # デバッグログを出力
+                    'ignoreerrors': False,
+                    'quiet': False,
+                    # ─── 【追加】普段使っているブラウザを指定（例: 'chrome', 'edge', 'firefox', 'safari'） ───
+                    'cookiesfrombrowser': ('safari',), 
                 }
+
 
                 # 生存確認が取れたプロキシのみ yt-dlp に渡す（setdefaultエラー対策の核心）
                 if proxy_url:
