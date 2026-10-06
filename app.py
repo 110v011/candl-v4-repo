@@ -27,16 +27,18 @@ if st.button("ダウンロード準備"):
                     except:
                         pass
 
+                                # 共通オプションをこちらに差し替えてみてください
                 common_opts = {
+                    'impersonate': 'chrome',      # Chromeブラウザの通信特徴を完全にシミュレートする
+                    'rm_cached_dir': True,        # 過去のブロックされたセッションキャッシュを毎回クリアする
                     'extractor_args': {
                         'youtube': {
-                            'client': ['ios', 'android', 'mweb']
+                            'player_client': ['web_embedded', 'mweb'] # 規制の緩い埋め込み用クライアントを指定
                         }
                     },
-                    'sleep_requests': 2,
+                    'sleep_requests': 3,
                     'source_address': '0.0.0.0',
                     'ignoreerrors': True,
-                    'no_color': True,
                 }
 
                 if option == "動画 (最良画質 MP4)":
